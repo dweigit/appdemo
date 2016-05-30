@@ -78,9 +78,9 @@ nohup java $JAVA_OPTS $JAVA_MEM_OPTS $JAVA_DEBUG_OPTS $JAVA_JMX_OPTS \
     $CLASS_PARAM > $STDOUT_FILE 2>&1 &
 
 COUNT=0
-while [ $COUNT -lt 1 ]; do    
+while [ $COUNT -lt 1 ]; do
     echo -e ".\c"
-    sleep 1 
+    sleep 1
     if [ -n "$SERVER_PORT" ]; then
         if [ "$SERVER_PROTOCOL" == "dubbo" ]; then
     	    if [ -n "$SERVER_HOST" ]; then

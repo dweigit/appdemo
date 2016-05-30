@@ -14,10 +14,10 @@ fi
 
 while [ 1 ]
 do
-	PRO_NOW=`ps -ef | grep java | grep "$PRO_PATH" | grep -v grep | wc -l`
-	if [ $PRO_NOW -lt 1 ]; then
-		$SCRIPT_PATH/$START_SCRIPT
-	fi
+        PRO_NOW=`ps -ef | grep java | grep "$PRO_PATH" | grep -v grep | wc -l`
+        if [ $PRO_NOW -lt 1 ]; then
+                $SCRIPT_PATH/$START_SCRIPT
+        fi
     sleep 5
 done
 exit 0
