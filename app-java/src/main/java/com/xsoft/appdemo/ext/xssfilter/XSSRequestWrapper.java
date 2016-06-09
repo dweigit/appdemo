@@ -1,88 +1,58 @@
-package com.xsoft.appdemo.controller;
+package com.xsoft.appdemo.ext.xssfilter;
 
-import com.github.pagehelper.PageInfo;
-import com.xsoft.appdemo.ext.xssfilter.XSSRequestWrapper;
-import com.xsoft.appdemo.model.UserInfo;
-import com.xsoft.appdemo.service.IUserService;
-import org.apache.commons.lang3.StringUtils;
 import org.owasp.esapi.ESAPI;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.servlet.http.HttpServletRequestWrapper;
 import java.util.regex.Pattern;
 
-@Controller
-public class UserController {
-    private static Logger log = LoggerFactory.getLogger(UserController.class);
-    @Resource
-    private IUserService userService;
+/**
+ * Created by dengwei06015 on 2016/6/8.
+ */
+public class XSSRequestWrapper extends HttpServletRequestWrapper {
 
-    @RequestMapping("/list_json")
-    @ResponseBody
-    public Object listJson(HttpServletRequest request, HttpServletResponse response) {
-        List<UserInfo> list = this.userService.findAll();
-        log.info("list->{}", list);
-        return list;
+    public XSSRequestWrapper(HttpServletRequest servletRequest) {
+        super(servletRequest);
     }
 
-    @RequestMapping("/list1")
-    public ModelAndView list(HttpServletRequest request, HttpServletResponse response) {
-        List<UserInfo> list = this.userService.findAll();
-        ModelAndView mav = new ModelAndView("list");
-        mav.addObject("userList", list);
-        return mav;
+    @Override
+    public String[] getParameterValues(String parameter) {
+        String[] values = super.getParameterValues(parameter);
+
+        if (values == null) {
+            return null;
+        }
+
+        int count = values.length;
+        String[] encodedValues = new String[count];
+        for (int i = 0; i < count; i++) {
+            encodedValues[i] = stripXSS(values[i]);
+        }
+
+        return encodedValues;
     }
 
-    @RequestMapping("/list_page")
-    public ModelAndView listPage(HttpServletRequest request, HttpServletResponse response) {
-        long l1 = System.currentTimeMillis();
-        int n = StringUtils.isBlank(request.getParameter("page"))?1:Integer.parseInt(request.getParameter("page"));
-        PageInfo<UserInfo> pageInfo = this.userService.findByPage(n);
-        ModelAndView mav=new ModelAndView("list_page");
-        mav.addObject("pageInfo",pageInfo);
-        long l2 = System.currentTimeMillis();
-        log.info("total time use: " + (l2-l1));
-        return mav;
+    @Override
+    public String getParameter(String parameter) {
+        String value = super.getParameter(parameter);
+
+        return stripXSS(value);
     }
 
-    @RequestMapping("/xss_filter")
-    @ResponseBody
-    public Object xssFilter(HttpServletRequest request, HttpServletResponse response) {
-        String val = request.getParameter("content");
-        log.info("-------->"+val);
-//        String safe = ESAPI.encoder().encodeForHTML(val);
-        String safe = stripXSS(val);
-        log.info("-------->"+safe);
-        Map map = new HashMap();
-        map.put("result",safe);
-        return map;
+    @Override
+    public String getHeader(String name) {
+        String value = super.getHeader(name);
+        return stripXSS(value);
     }
 
-    @RequestMapping("/xss_test")
-    public ModelAndView xssTest(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView mav=new ModelAndView("xss_test");
-        return mav;
-    }
-
-    public String stripXSS(String value) {
+    private String stripXSS(String value) {
         if (value != null) {
             // NOTE: It's highly recommended to use the ESAPI library and uncomment the following line to
             // avoid encoded attacks.
             // value = ESAPI.encoder().canonicalize(value);
 
             //对用户输入“input”进行HTML编码，防止XSS。
-//            String safe = ESAPI.encoder().encodeForHTML(value);
+            String safe = ESAPI.encoder().encodeForHTML(value);
 
 
             // Avoid null characters
@@ -126,7 +96,6 @@ public class UserController {
             // Avoid onload= e­xpressions
             scriptPattern = Pattern.compile("onload(.*?)=", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
             value = scriptPattern.matcher(value).replaceAll("");
-
         }
         return value;
     }
