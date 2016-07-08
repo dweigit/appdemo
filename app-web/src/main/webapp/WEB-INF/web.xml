@@ -2,6 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
+  <!-- Spring MVC Config Start -->
   <servlet>
     <servlet-name>mvc-dispatcher</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -15,6 +16,7 @@
     <servlet-name>mvc-dispatcher</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  <!-- Spring MVC Config End -->
 
   <!-- druid web 监控；Druid是Java语言中最好的数据库连接池。Druid能够提供强大的监控和扩展功能。 -->
   <!-- 项目地址： https://github.com/alibaba/druid.git -->
@@ -48,6 +50,7 @@
   <!--<url-pattern>/*</url-pattern>-->
   <!--</filter-mapping>-->
 
+  <!-- Spring 编码过滤器 start -->
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -64,7 +67,9 @@
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <!-- Spring 编码过滤器 end -->
 
+  <!-- Spring Application Context Listener Start -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:spring/root-context.xml</param-value>
@@ -72,6 +77,7 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  <!-- Spring Application Context Listener End -->
 
   <!-- Logback是由log4j创始人设计的又一个开源日志组件。 -->
   <listener>
