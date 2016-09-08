@@ -1,8 +1,11 @@
+/*
 package com.xsoft.appdemo.jetty;
 
+*/
 /**
  * Created by dengwei06015 on 2016/3/2.
- */
+ *//*
+
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jetty.server.Server;
@@ -171,5 +174,5 @@ public class JettyServer {
         }
         return true;
     }
-
 }
+*/
