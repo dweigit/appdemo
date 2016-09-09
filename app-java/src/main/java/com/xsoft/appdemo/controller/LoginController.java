@@ -48,4 +48,9 @@ public class LoginController {
     public String table(Model model) {
         return "/table";
     }
+
+    @RequestMapping("/table2")
+    public String table2(Model model) {
+        return "/table2";
+    }
 }

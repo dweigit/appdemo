@@ -1,5 +1,5 @@
 @echo off & setlocal enabledelayedexpansion
-title webdemo
+title appdemo
 
 set LIB_JARS=""
 cd ..\lib

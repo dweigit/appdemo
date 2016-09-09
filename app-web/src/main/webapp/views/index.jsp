@@ -11,13 +11,13 @@
     <title>home page</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="${ctx}/static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="${ctx}/static/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="${ctx}/static/dist/css/skins/skin-blue.min.css">
+    <link rel="stylesheet" href="${ctx}/static/libs/font-awesome-4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${ctx}/static/libs/ionicons-2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="${ctx}/static/adminlte/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="${ctx}/static/adminlte/css/skins/skin-blue.min.css">
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="${ctx}/js/html5shiv.min.js"></script>
+    <script src="${ctx}/js/respond.min.js"></script>
     <![endif]-->
 </head>
 
@@ -28,7 +28,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="/index" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
@@ -49,14 +49,14 @@
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="${ctx}/static/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <img src="${ctx}/static/adminlte/img/user2-160x160.jpg" class="user-image" alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs">Alexander Pierce</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="${ctx}/static/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="${ctx}/static/adminlte/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p>
                                     Alexander Pierce - Web Developer
@@ -102,7 +102,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="${ctx}/static/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="${ctx}/static/adminlte/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>Alexander Pierce</p>
@@ -115,14 +115,14 @@
             <ul class="sidebar-menu">
                 <li class="header"></li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="/table" data-pjax='#main_content'><i class="fa fa-th "></i> <span>Link</span></a></li>
+                <li class="active"><a href="/table" ><i class="fa fa-th "></i> <span>Link</span></a></li>
                 <li><a href="#"><i class="fa fa-th"></i> <span>Another Link</span></a></li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-th"></i> <span>Multilevel</span>
                         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/table">Link in level 2</a></li>
+                        <li><a href="/table2">Link in level 2</a></li>
                         <li><a href="#">Link in level 2</a></li>
                     </ul>
                 </li>
@@ -255,11 +255,12 @@
 
 <script src="${ctx}/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script src="${ctx}/static/bootstrap/js/bootstrap.min.js"></script>
-<script src="${ctx}/static/dist/js/app.min.js"></script>
+<script src="${ctx}/static/adminlte/js/app.min.js"></script>
 <script src="${ctx}/js/jquery.pjax.js"></script>
 <script>
     $(document).ready(function () {
-        $('a[data-pjax]').pjax();
+        $(document).pjax('a', '#main_content')
+//        $('a[data-pjax]').pjax();
 
 //        $.pjax({
 //            url: '/table',

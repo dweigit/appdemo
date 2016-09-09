@@ -17,4 +17,9 @@ public class IndexController {
     public String index(Model model) throws Exception {
         return "index";
     }
+
+    @RequestMapping("/test")
+    public String test(Model model) throws Exception {
+        return "test";
+    }
 }
