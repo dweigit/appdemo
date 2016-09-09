@@ -1,287 +1,176 @@
-<%@ page language="java" pageEncoding="UTF-8" %>
-<%@ page isELIgnored="false" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<section class="content">
+    <div class="callout callout-warning">
+        <h4>Warning!</h4>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>home page</title>
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="${ctx}/static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${ctx}/static/libs/font-awesome-4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="${ctx}/static/libs/ionicons-2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="${ctx}/static/adminlte/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="${ctx}/static/adminlte/css/skins/skin-blue.min.css">
-    <!--[if lt IE 9]>
-    <script src="${ctx}/js/html5shiv.min.js"></script>
-    <script src="${ctx}/js/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
-
-    <!-- Main Header -->
-    <header class="main-header">
-
-        <!-- Logo -->
-        <a href="/index" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b>LTE</span>
-        </a>
-
-        <!-- Header Navbar -->
-        <nav class="navbar navbar-static-top" role="navigation">
-            <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only">Toggle navigation</span>
-            </a>
-            <!-- Navbar Right Menu -->
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <!-- User Account Menu -->
-                    <li class="dropdown user user-menu">
-                        <!-- Menu Toggle Button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <!-- The user image in the navbar-->
-                            <img src="${ctx}/static/adminlte/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">Alexander Pierce</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- The user image in the menu -->
-                            <li class="user-header">
-                                <img src="${ctx}/static/adminlte/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                                <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
-                                </p>
-                            </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="${ctx}/static/adminlte/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                </div>
-                <div class="pull-left info">
-                    <p>Alexander Pierce</p>
-                    <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
-            </div>
-
-            <!-- Sidebar Menu -->
-            <ul class="sidebar-menu">
-                <li class="header"></li>
-                <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="/table" ><i class="fa fa-th "></i> <span>Link</span></a></li>
-                <li><a href="#"><i class="fa fa-th"></i> <span>Another Link</span></a></li>
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-th"></i> <span>Multilevel</span>
-                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/table2">Link in level 2</a></li>
-                        <li><a href="#">Link in level 2</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-th"></i> <span>Setting</span>
-                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#">Link in level 2</a></li>
-                        <li><a href="#">Link in level 2</a></li>
-                        <li><a href="#">Link in level 2</a></li>
-                        <li><a href="#">Link in level 2</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- /.sidebar-menu -->
-        </section>
-        <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Page Header
-                <small>Optional description</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
-            </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content" id="main_content">
-
-            <!-- Your Page Content Here -->
-
-        </section>
-        <!-- /.content -->
+        <p><b>Morris.js</b> charts are no longer maintained by its author. We would recommend using any of the other
+            charts that come with the template.</p>
     </div>
-    <!-- /.content-wrapper -->
+    <div class="row">
+        <div class="col-md-6">
+            <!-- AREA CHART -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Area Chart</h3>
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <!-- To the right -->
-        <div class="pull-right hidden-xs">
-            Anything you want
-        </div>
-        <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
-    </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <!-- Home tab content -->
-            <div class="tab-pane active" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:;">
-                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                <p>Will be 23 on April 24th</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-                <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:;">
-                            <h4 class="control-sidebar-subheading">
-                                Custom Template Design
-                                <span class="pull-right-container">
-                  <span class="label label-danger pull-right">70%</span>
-                </span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-            </div>
-            <!-- /.tab-pane -->
-            <!-- Stats tab content -->
-            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-            <!-- /.tab-pane -->
-            <!-- Settings tab content -->
-            <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Some information about this general settings option
-                        </p>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                     </div>
-                    <!-- /.form-group -->
-                </form>
+                </div>
+                <div class="box-body chart-responsive">
+                    <div class="chart" id="revenue-chart" style="height: 300px;"></div>
+                </div>
+                <!-- /.box-body -->
             </div>
-            <!-- /.tab-pane -->
+            <!-- /.box -->
+
+            <!-- DONUT CHART -->
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Donut Chart</h3>
+
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body chart-responsive">
+                    <div class="chart" id="sales-chart" style="height: 300px; position: relative;"></div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+
         </div>
-    </aside>
+        <!-- /.col (LEFT) -->
+        <div class="col-md-6">
+            <!-- LINE CHART -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Line Chart</h3>
 
-</div>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body chart-responsive">
+                    <div class="chart" id="line-chart" style="height: 300px;"></div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
 
+            <!-- BAR CHART -->
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Bar Chart</h3>
 
-<script src="${ctx}/static/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<script src="${ctx}/static/bootstrap/js/bootstrap.min.js"></script>
-<script src="${ctx}/static/adminlte/js/app.min.js"></script>
-<script src="${ctx}/js/jquery.pjax.js"></script>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body chart-responsive">
+                    <div class="chart" id="bar-chart" style="height: 300px;"></div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+
+        </div>
+        <!-- /.col (RIGHT) -->
+    </div>
+    <!-- /.row -->
+
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="${ctx}/static/plugins/morris/morris.min.js"></script>
+<!-- page script -->
 <script>
-    $(document).ready(function () {
-        $(document).pjax('a', '#main_content')
-//        $('a[data-pjax]').pjax();
+    $(function () {
+        "use strict";
 
-//        $.pjax({
-//            url: '/table',
-//            container: '#main_content',
-//            show: 'fade',  //展现的动画，支持默认和fade, 可以自定义动画方式，这里为自定义的function即可。
-//            cache: true,  //是否使用缓存
-//            storage: true,  //是否使用本地存储
-//            titleSuffix: '', //标题后缀
-//            filter: function(){},
-//            callback: function (status) {
-//                var type = status.type;
-//                switch (type) {
-//                    case 'success':; break; //正常
-//                    case 'cache':; break; //读取缓存
-//                    case 'error':; break; //发生异常
-//                    case 'hash':; break; //只是hash变化
-//                }
-//            }
-//        })
+        // AREA CHART
+        var area = new Morris.Area({
+            element: 'revenue-chart',
+            resize: true,
+            data: [
+                {y: '2011 Q1', item1: 2666, item2: 2666},
+                {y: '2011 Q2', item1: 2778, item2: 2294},
+                {y: '2011 Q3', item1: 4912, item2: 1969},
+                {y: '2011 Q4', item1: 3767, item2: 3597},
+                {y: '2012 Q1', item1: 6810, item2: 1914},
+                {y: '2012 Q2', item1: 5670, item2: 4293},
+                {y: '2012 Q3', item1: 4820, item2: 3795},
+                {y: '2012 Q4', item1: 15073, item2: 5967},
+                {y: '2013 Q1', item1: 10687, item2: 4460},
+                {y: '2013 Q2', item1: 8432, item2: 5713}
+            ],
+            xkey: 'y',
+            ykeys: ['item1', 'item2'],
+            labels: ['Item 1', 'Item 2'],
+            lineColors: ['#a0d0e0', '#3c8dbc'],
+            hideHover: 'auto'
+        });
+
+        // LINE CHART
+        var line = new Morris.Line({
+            element: 'line-chart',
+            resize: true,
+            data: [
+                {y: '2011 Q1', item1: 2666},
+                {y: '2011 Q2', item1: 2778},
+                {y: '2011 Q3', item1: 4912},
+                {y: '2011 Q4', item1: 3767},
+                {y: '2012 Q1', item1: 6810},
+                {y: '2012 Q2', item1: 5670},
+                {y: '2012 Q3', item1: 4820},
+                {y: '2012 Q4', item1: 15073},
+                {y: '2013 Q1', item1: 10687},
+                {y: '2013 Q2', item1: 8432}
+            ],
+            xkey: 'y',
+            ykeys: ['item1'],
+            labels: ['Item 1'],
+            lineColors: ['#3c8dbc'],
+            hideHover: 'auto'
+        });
+
+        //DONUT CHART
+        var donut = new Morris.Donut({
+            element: 'sales-chart',
+            resize: true,
+            colors: ["#3c8dbc", "#f56954", "#00a65a"],
+            data: [
+                {label: "Download Sales", value: 12},
+                {label: "In-Store Sales", value: 30},
+                {label: "Mail-Order Sales", value: 20}
+            ],
+            hideHover: 'auto'
+        });
+        //BAR CHART
+        var bar = new Morris.Bar({
+            element: 'bar-chart',
+            resize: true,
+            data: [
+                {y: '2006', a: 100, b: 90},
+                {y: '2007', a: 75, b: 65},
+                {y: '2008', a: 50, b: 40},
+                {y: '2009', a: 75, b: 65},
+                {y: '2010', a: 50, b: 40},
+                {y: '2011', a: 75, b: 65},
+                {y: '2012', a: 100, b: 90}
+            ],
+            barColors: ['#00a65a', '#f56954'],
+            xkey: 'y',
+            ykeys: ['a', 'b'],
+            labels: ['CPU', 'DISK'],
+            hideHover: 'auto'
+        });
     });
-
 </script>
-</body>
-</html>
