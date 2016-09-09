@@ -30,13 +30,13 @@
 	</bean>
 
 	<!-- spring mvc对静态资源的访问 -->
-	<mvc:resources location="/images/" mapping="/images/**" />
+	<mvc:resources location="/static/" mapping="/static/**" />
 	<mvc:resources location="/js/" mapping="/js/**" />
-	<mvc:resources location="/css/" mapping="/css/**" />
+
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/jsp/" />
+		<property name="prefix" value="/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 </beans>
