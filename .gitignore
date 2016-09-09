@@ -8,6 +8,16 @@ out
 gen### Java template
 *.class
 
+# ignore Maven generated target folders
+app-java/target
+app-web/target
+
+# ignore eclipse files
+.project
+.classpath
+.settings
+.metadata
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
