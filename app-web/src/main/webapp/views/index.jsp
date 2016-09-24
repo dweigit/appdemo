@@ -1,4 +1,3 @@
-<section class="content">
     <div class="callout callout-warning">
         <h4>Warning!</h4>
 
@@ -85,9 +84,6 @@
         </div>
         <!-- /.col (RIGHT) -->
     </div>
-    <!-- /.row -->
-
-</section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="${ctx}/static/plugins/morris/morris.min.js"></script>
 <!-- page script -->

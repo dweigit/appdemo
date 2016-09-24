@@ -26,14 +26,9 @@
 </head>
 
 <body>
-dsfadssssssssssssssssssss
-adfa
-df
-adsf
-as
-df
+
 <!--data-pjax为需要接收的另一页面的标签,id为main-->
-<a href='/table' data-pjax='#main'>11111111111</a>
+<a href='/login' data-pjax='#main'>11111111111</a>
 <!--id为main的标签接收另一页面,如无法找到目标页面则在class为error处提示错误-->
 <a href='/table' class='js-pjax'>222222222222</a>
 <!--id为main的标签接收另一页面-->

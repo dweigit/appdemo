@@ -1,7 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<!-- Main content -->
-<section class="content">
     <div class="row">
         <!-- left column -->
         <div class="col-md-6">
@@ -391,5 +389,3 @@
         <!--/.col (right) -->
     </div>
     <!-- /.row -->
-</section>
-<!-- /.content -->

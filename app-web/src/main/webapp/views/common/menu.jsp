@@ -24,7 +24,7 @@
             <li><a href="/page/table4">table4</a></li>
         </ul>
     </li>
-    <li class="active"><a href="/page/icon"><i class="fa fa-th "></i> <span>icon</span></a></li>
+    <li><a href="/page/icon"><i class="fa fa-th "></i><span>icon</span></a></li>
     <li><a href="#"><i class="fa fa-th"></i> <span>Another Link</span></a></li>
     <li class="treeview">
         <a href="#"><i class="fa fa-th"></i> <span>Multilevel</span>
@@ -47,3 +47,16 @@
         </ul>
     </li>
 </ul>
+
+<script type="text/javascript">
+    $(function(){
+        //菜单选中初始化
+        var path = window.location.pathname;
+        $("a[href='"+path+"']").parent("li").addClass("active");
+        $("a[href='"+path+"']").parents("li.treeview").addClass("active");
+        //面包屑导航初始化
+        var li_html = $("a[href='"+path+"']").parent("li").html();
+        $(".breadcrumb").append("<li>"+li_html+"</li>");
+
+    });
+</script>

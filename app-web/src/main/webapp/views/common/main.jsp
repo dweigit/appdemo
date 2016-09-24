@@ -107,18 +107,17 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                Page Header
-                <small>Optional description</small>
-            </h1>
+            <h1>Dashboard<small>Optional description</small></h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
+                <li><a href="/index"><i class="fa fa-home"></i>Home</a></li>
+                <%--<li><a href="#">one</a></li>--%>
+                <%--<li><a href="#">two</a></li>--%>
+                <%--<li><a href="#">two</a></li>--%>
             </ol>
         </section>
 
         <!-- Main content -->
-        <section class="content">
+        <section class="content" id="main_content">
             <sitemesh:write property='body'/>
         </section>
         <!-- /.content -->
@@ -126,8 +125,6 @@
     <!-- /.content-wrapper -->
 
  <jsp:include page="footer.jsp"></jsp:include>
-
 </div>
-
 </body>
 </html>
